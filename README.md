@@ -1,6 +1,6 @@
-# 📦 JEX Dev Snippets
+# 📦 JEX Dev Snippets (v3.0)
 
-A personal basecode library for reusable, efficient development using the **JEX framework style** — including Java `action` classes, XML `ido` queries, HTML views, and JavaScript helpers.
+A personal basecode library for reusable, efficient development using the **JEX framework (v3.0)** — including Java `action` classes, XML `ido` queries, HTML views, and JavaScript helpers.
 
 This repo is designed to work smoothly with **Cursor AI** or **ChatGPT** to accelerate coding through prompt-based or searchable reuse of known logic.
 

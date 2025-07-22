@@ -9,21 +9,36 @@ WebCommonUtil util = WebCommonUtil.getInstace(request, response);
 
 // Set up input/output domains
 @JexDataInfo(id="utest_upload_0001_01_p001", type=JexDataType.WSVC)
-JexData input = util.getInputDomain();
-JexData result = util.createResultDomain();
+<%@page contentType="text/html; charset=UTF-8"%>
 
-File uploadedFile = (File) input.get("FILE_NM");
-String fileName = null;
+<%@page import="jex.data.annotation.JexDataInfo"%>
+<%@page import="jex.data.JexData"%>
+<%@page import="jex.data.JexDataType"%>
+<%@page import="jex.web.util.WebCommonUtil"%>
+<%@page import="java.io.File"%>
 
-while (uploadedFile != null)
-{
-    // Loading the name of a file to be uploaded
-    fileName = util.getFileName(uploadedFile);
+<%
+    // Initialize web utilities
+    WebCommonUtil util = WebCommonUtil.getInstace(request, response);
 
-    // TODO processing of uploaded files
+    // Set up input/output domains
+    @JexDataInfo(id="upload_multiple_file", type=JexDataType.WSVC)
+    JexData input = util.getInputDomain();
+    JexData result = util.createResultDomain();
 
-    // Information on the following file(s) is loaded.
-    uploadedFile = util.getNextFile(uploadedFile);
-}
+    File uploadedFile = (File) input.get("FILE_NM");
+    String fileName = null;
 
-util.setResult(result, "default");
+    while (uploadedFile != null)
+    {
+        // Loading the name of a file to be uploaded
+        fileName = util.getFileName(uploadedFile);
+
+        // TODO processing of uploaded files
+
+        // Information on the following file(s) is loaded.
+        uploadedFile = util.getNextFile(uploadedFile);
+    }
+
+    util.setResult(result, "default");
+%>

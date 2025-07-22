@@ -1,0 +1,23 @@
+<%@page contentType="text/html; charset=UTF-8"%>
+
+<%@page import="jex.web.util.WebCommonUtil"%>
+<%@page import="jex.data.JexData"%>
+<%@page import="jex.data.impl.JexDataRecordList"%>
+<%@page import="jex.resource.cci.JexConnection"%>
+<%@page import="jex.web.exception.JexWebBIZException"%>
+<%@page import="jex.resource.cci.JexConnectionManager"%>
+<%@page import="jex.data.impl.ido.JexDataInIDO"%>
+<%@page import="jex.data.item.DataItem"%>
+<%
+    JexData input = util.createIDOData("TEST_IDO");
+    int fieldSize = input._getItemSize();
+
+
+    for(int i =0; i< fieldSize ; i++)
+    {
+        DataItem item = input._getDataItem(i);
+
+        String fieldId = item.getId();
+        String fieldName = item.getName();
+    }
+%>
